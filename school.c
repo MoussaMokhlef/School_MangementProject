@@ -31,50 +31,63 @@ void MAIN_MENU(void)                 //main menu to show your choise
 {
 	u8 choise;
 	
-	
-		
-	printf("******************************\n");
-	printf("______Welcome sir_______ \n");
-	printf("******************************\n");
-	printf("what to you want to do \n");
-	printf("1: ADD NEW_STUDENT \n");
-	printf("2: DELETE_STUDENT\n");
-	printf("3: SHOW STUDENT_LIST\n");
-	printf("4: STUDENT_EDIT\n");
-	printf("5: RANK_STUDENT\n");
-	printf("6: STUDENT_SCORE\n");
-	printf("7:exit from program\n");
+	while(1)
+	{
+	printf("******************************************\n");
+	printf("   ____________Welcome sir_____________ \n ");
+	printf("******************************************\n");
+	printf(" ___________what to you want to do___________  \n");
+	printf("--------------------------------------------\n");
+	printf("1: _____________ADD NEW_STUDENT_____________ \n");
+	printf("--------------------------------------------\n");
+	printf("2: _____________DELETE_STUDENT______________\n");
+	printf("--------------------------------------------\n");
+	printf("3: ___________SHOW STUDENT_LIST_____________\n");
+	printf("--------------------------------------------\n");
+	printf("4: ______________STUDENT_EDIT_______________\n");
+	printf("--------------------------------------------\n");
+	printf("5: ______________RANK_STUDENT_______________\n");
+	printf("--------------------------------------------\n");
+	printf("6: ______________STUDENT_SCORE______________\n");
+	printf("--------------------------------------------\n");
+	printf("7:_____________exit from program____________\n");
+	printf("--------------------------------------------\n");
 	printf("Your choise is -> ");
-	scanf("%d",&choise);
-	
+	scanf(" %c",&choise);
+	printf("%c",choise);
 	switch(choise)
 	{
-		case(1):                     //ADD NEW_STUDENT FUNCTION
+		case('1'):                     //ADD NEW_STUDENT FUNCTION
 		        ADD_NEW_STUDENT();
 				break;
-		case(2):                     //DELETE_STUDENT FUNCTION
+		case('2'):                     //DELETE_STUDENT FUNCTION
 		        DELETE_STUDENT();
 				break;
-		case(3):                     //SHOW STUDENT_LIST FUNCTION
+		case('3'):                     //SHOW STUDENT_LIST FUNCTION
                 SHOW_STUDENT_LIST();
                 break;
-        case(4):                    //STUDENT_EDIT FUNCTION
+        case('4'):                    //STUDENT_EDIT FUNCTION
                 STUDENT_EDIT();
                 break;
-        case(5):                    //RANK_STUDENT FUNCTION
+        case('5'):                    //RANK_STUDENT FUNCTION
                 RANK_STUDENT();
 				break;
-        case(6):                    //STUDENT_SCORE FUNCTION
+        case('6'):                    //STUDENT_SCORE FUNCTION
                 STUDENT_SCORE();
 				break;
-		case(7):                     //Exit from program
+		case('7'):                     //Exit from program
 		        printf("......GodBye......\n");
+				return ;
 		        break;
         default:
 		        printf("Invalid choice...\n");
 				break;
 		
 	}
+	}
+	
+		
+
 	
 	
 }
@@ -83,19 +96,19 @@ void MAIN_MENU(void)                 //main menu to show your choise
 void ADD_NEW_STUDENT(void)            //funtion to add new student sorted in list
 {
 	student* new=(student*)malloc(sizeof(student));
-	printf("please entre name of new student: ");
+	printf("please entre name of new student         : ");
 	fflush(stdin);
 	gets(new->name_student);
-	printf("please entre addrese of new student: ");
+	printf("please entre addrese of new student      : ");
 	gets(new->addrese_student);
 	printf("please entre date of birth of new student: ");
 	gets(new->date_birth);
-	printf("please enter phone number of new student: ");
+	printf("please enter phone number of new student : ");
 	fflush(stdin);
 	scanf("%d",&(new->phone_number));
-	printf("enter I_D of new student: ");
+	printf("enter I_D of new student                 : ");
 	scanf("%d",&(new->I_D));
-	printf("enter Score of new student:");
+	printf("enter Score of new student               : ");
 	scanf("%d",&(new->Score));
 	
 	
@@ -114,7 +127,7 @@ void ADD_NEW_STUDENT(void)            //funtion to add new student sorted in lis
         head=new;
     }
 	
-	MAIN_MENU();
+	
 }
 /**************************************************************************************************************/
 void SHOW_STUDENT_LIST(void)                              //show sort list of student
@@ -134,7 +147,7 @@ void SHOW_STUDENT_LIST(void)                              //show sort list of st
 		printf("\n*****************************\n");
 	}
 	
-	MAIN_MENU();
+	
 }
 /*********************************************************************************************************************/
 void DELETE_STUDENT(void)
@@ -143,12 +156,12 @@ void DELETE_STUDENT(void)
 	fflush(stdin);
 	u8 flag=FALSE;
 	u8 arr[MAX_SIZE];
-	printf("please enter name student to Deleted->");
+	printf("\nplease enter name student to Deleted->\n");
 	gets(arr);
 	fflush(stdin);
 	if(head==NULL)
 	{
-		printf("school is empty..\n");
+		printf(".....school is empty.....\n");
 		flag=TRUE;
 	}
 	else if((strcmp((head->name_student),arr))==LOW)
@@ -186,7 +199,7 @@ void DELETE_STUDENT(void)
 	{
 		printf("NOT FOUNDED....\n");
 	}
-	MAIN_MENU();
+	
 	
 	}
 	/****************************************************************************************************/
@@ -196,7 +209,7 @@ void STUDENT_EDIT(void)         //function to edit elements of student using nam
 	if(head==NULL)              //chick if school is empty
 		{
 			printf("empty school...\n");
-			MAIN_MENU();
+		
 		}
 	else                        //
 	{
@@ -239,7 +252,7 @@ void STUDENT_EDIT(void)         //function to edit elements of student using nam
 	
 
 	}
-	MAIN_MENU();
+	
 }
 /**********************************************************************************************************/
 
@@ -262,7 +275,7 @@ void STUDENT_SCORE(void)                    //function to edit score of students
 		printf("\n*****************************\n");
 	}
 	}
-	MAIN_MENU();
+	
 }
 /************************************************************************************************************/
 void  RANK_STUDENT(void)                          //function to Display linked of student by score student
@@ -280,7 +293,7 @@ void  RANK_STUDENT(void)                          //function to Display linked o
 		temp=temp->next;
 		printf("\n*****************************\n");
 	}
-	MAIN_MENU();
+	
 	
 }
 /*******************************************************************************************************************/
